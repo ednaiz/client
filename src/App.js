@@ -23,6 +23,23 @@ function App() {
     .catch(x => console.log(x))
 
   console.log(abc)
+//אורטל הוספתי פה את ה POST
+  var body = {
+    userName: 'ortal',
+    userEmail: 'ortal@gmail.com'
+}
+
+axios({
+    method: 'post',
+    url: '/addUser',
+    data: body
+})
+.then(function (response) {
+    console.log(response);
+})
+.catch(function (error) {
+    console.log(error);
+});
 
   //בקשה לקבל
   axios.get('https://localhost:44340/api/customer?password=147&userName=saaa')
