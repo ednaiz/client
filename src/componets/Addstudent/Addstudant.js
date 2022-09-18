@@ -16,6 +16,15 @@ const AddStudent = () => {
 
     ]
     );
+    const deletestudent=()=>{
+        const todelet = promt("תרצה למחוק סטודנט זה כן /לא");
+        if(todelet=="כן")
+        alert("התלמיד נמחק ")
+        else
+        alert("התלמיד נשאר")
+
+
+    }
     const addStudent = () => {
         let part = { name: nameInput.current.value, email: emailInput.current.value, phoneNumber: phoneInput.current.value }
         const fakeStudent = [...student, part];
@@ -25,9 +34,17 @@ const AddStudent = () => {
         setStudent(fakeStudent)
         alert("הסטודנדט התווסף");
     }
+
    
     return (
-        <>
+       
+        <div>
+             <bottom> e</bottom>
+            <bottom> a</bottom>
+            <bottom onClick={deletestudent}>d </bottom>
+
+            
+
             <h1>
 
             </h1>
@@ -38,8 +55,8 @@ const AddStudent = () => {
                 <input type="button" value="+" onClick={addStudent} /><br /><br />
                 {/* <input type="button" value="המשך" onClick={addParticipate2} /> */}
 
-            </form>
-        </>
-    )
+                   </form>
+            </div>   
+       )
 }
 export default AddStudent;
