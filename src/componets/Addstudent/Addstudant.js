@@ -19,10 +19,9 @@ const AddStudent = () => {
     const deletestudent=()=>{
         const todelet = promt("תרצה למחוק סטודנט זה כן /לא");
         if(todelet=="כן")
-        alert("התלמיד נמחק ")
+        alert("התלמיד נמחק ")//את צריכה באמת למחוק את התלמיד ופה שמת רק הודעה בלי למחוק אותו
         else
         alert("התלמיד נשאר")
-
 
     }
     const addStudent = () => {
