@@ -10,16 +10,29 @@ export class Lecturer extends Component {
         users: [],
         isFetching: true
     };
+}
 
-    componentDidMount() {
+        const handleSubmit = (e) => {
+        e.preventDefault();
+        const lecturer = profileObj( id, name, username, email, website, address);
+        localStorage.setItem('lecturerProfile', JSON.stringify(lecturer))
+        let form_data = new FormData()//fk
+       form_data.append('id', parseInt(JSON.parse(localStorage.getItem('data')).id, 10))
+       form_data.append('name',lecturer.namelecturer)
+       form_data.append('username',lecturer.username)
+       form_data.append('email',lecturer.email)
+       form_data.append('website',lecturer.website)
+
+
+    componentDidMount() 
         fetch("https://jsonplaceholder.typicode.com/users")
             .then(response => response.json())
             .then(res => {
                 this.setState({ users: res, isFetching: false });
             });
-    }
+    
 
-    render() {
+    render() 
         return this.state.isFetching
             ? (
                 <div class="loader" style={{ marginLeft: "50%" }}>
@@ -52,4 +65,3 @@ export class Lecturer extends Component {
                 </div>
             );
     }
-}
