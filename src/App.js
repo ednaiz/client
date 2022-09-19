@@ -96,15 +96,15 @@ axios({
 
   return (<div className="App">
     <Test />
-    {/* <Register />
-    <StudenDetails />
-    <StudentList /> 
-    <LOGIN /> 
-    <LECTURER /> 
-    <AddStudent />
-    <NABBAR />
-<ABOUT />
-    <ABOUT />*/}
+    {// <Register />
+    <StudenDetails/>
+    <StudentList/> 
+    <LOGIN// /> 
+    <LECTURER// /> 
+    <AddStudent// />
+    <NABBAR// />
+<ABOUT// />
+    <ABOUT/ //>*/}
 
 
 
