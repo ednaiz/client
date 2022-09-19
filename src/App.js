@@ -94,22 +94,7 @@ axios({
   // .catch(x=>console.log(x))
 
 
-  return (<div className="App">
-    <Test />
-    {// <Register />
-    <StudenDetails/>
-    <StudentList/> 
-    <LOGIN// /> 
-    <LECTURER// /> 
-    <AddStudent// />
-    <NABBAR// />
-<ABOUT// />
-    <ABOUT/ //>*/}
-
-
-
-  </div>
-  );
+ 
 
 
 export default App;
