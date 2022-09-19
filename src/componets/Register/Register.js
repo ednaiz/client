@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import './style.css'
-import './Register.css'
+import React from 'react';
 const Register = () => {
     return (
         <div className="form">

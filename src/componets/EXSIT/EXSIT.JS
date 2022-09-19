@@ -1,9 +1,8 @@
-const Exit = ()  => {
-   return (<>
-    <p>
-      שלכם , אתר ONSPOT
- </p>
- </>)
+import React from "react";
+const Exit = () => {
+  return (
+    <p>שלכם , אתר ONSPOT </p>
+  )
 }
 
 

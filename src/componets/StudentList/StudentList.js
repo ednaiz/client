@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const students = ["eren", "levi", "mikasa", "armin", "erwin"];
 const StudentList = () => {
