@@ -16,10 +16,43 @@ const AddStudent = () => {
 
     ]
     );
+    //add student לבדיקה
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const student = profileObj(nameuser, phoneNumber, city, stat, address);
+        localStorage.setItem('studentProfile', JSON.stringify(student))
+        let form_data = new FormData()//fk
+        form_data.append('id', parseInt(JSON.parse(localStorage.getItem('data')).id, 10))
+        form_data.append('name', student.nameuser)//change the name property in the db to one
+        form_data.append('phone',student.phoneNumber)
+        form_data.append('city',student.city)
+        form_data.append('role',student.status)
+        form_data.append('address',student.address)
+        form_data.append('password',student.pass)
+        form_data.append('cus_status',student.cus_status)
+        
+        fetch('http://localhost:8000/customer_apis/addCustomer/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+            },
+            body: form_data
+        })
+            .then(res => {
+                console.log(res)
+                console.log(res.status)
+                if (res.status !== 200)
+                    document.getElementById('text-error').innerHTML = res.statusText
+                else {
+                    navigate('/create_store')
+                }
+            })
+    }
+
     const deletestudent=()=>{
         const todelet = promt("תרצה למחוק סטודנט זה כן /לא");
         if(todelet=="כן")
-        alert("התלמיד נמחק ")//את צריכה באמת למחוק את התלמיד ופה שמת רק הודעה בלי למחוק אותו
+        alert("התלמיד נמחק ")// את צריכה באמת למחוק את התלמיד ופה שמת רק הודעה בלי למחוק אותו
         else
         alert("התלמיד נשאר")
 
@@ -49,8 +82,8 @@ const AddStudent = () => {
             </h1>
             <form>
                 <input type="text" name="name" ref={nameInput} />   <label >שם משתמש</label><br /><br />
-                <input type="mail" name="email" ref={emailInput} placeolder="מייל" required /> <label >מייל</label><br /><br />
-                <input type="number" name="phoneNumber" ref={phoneInput} placeolder="טלפון" /> <label>טלפון</label><br /><br />
+                <input type="mail" name="email" ref={emailInput} placeholder="מייל" required /> <label >מייל</label><br /><br />
+                <input type="number" name="phoneNumber" ref={phoneInput} placeholder="טלפון" /> <label>טלפון</label><br /><br />
                 <input type="button" value="+" onClick={addStudent} /><br /><br />
                 {/* <input type="button" value="המשך" onClick={addParticipate2} /> */}
 
