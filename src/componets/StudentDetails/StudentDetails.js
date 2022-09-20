@@ -12,7 +12,7 @@ const Users = () => {
 
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
+        fetch("http://localhost:3000/")
             .then(response => response.json())
             .then(res => {
                 setIsFetching(false)
