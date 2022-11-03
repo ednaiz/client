@@ -12,7 +12,7 @@ const Users = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:3000/")
+        fetch("http://localhost:30300/")
             .then(response => response.json())
             .then(res => {
                 setIsFetching(false)
