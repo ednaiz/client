@@ -1,35 +1,25 @@
 import './App.css';
 import AddStudent from './componets/Addstudent/Addstudant';
 import Register from './componets/Register/REGISSTERR';
-import StudenDetails from './componets/StudentDetails/StudentDetails';
+import StudentDetails from './componets/StudentDetails/StudentDetails';
 import StudentList from './componets/StudentList/StudentList';
-//import Lecturer from './componets/Lecturer/Lecturer';
+import Lecturer from './componets/Lecturer/Lecturer';
 import Login from './componets/Login/Login';
 import Exit from './componets/EXSIT/EXSIT';
 import { Routes, Route } from 'react-router-dom';
 function App() {
 
-
   return (
     <div className="App">
       <Routes>
-        <Route path="StudentDetails" element={<StudenDetails />} />
+        <Route path="StudentDetails" element={<StudentDetails />} />
         <Route path="register" element={<Register />} />
-        <Route path="studentlist" element={<StudentList />} />
-        <Route path="StudentDetails" element={<StudenDetails />} />
+        <Route path="studentList" element={<StudentList />} />
         <Route path="AddStudent" element={<AddStudent />} />
         <Route path="lecturer" element={<Lecturer />} />
         <Route path="login" element={<Login />} />
         <Route path="exit" element={<Exit />} />
-        <Route path="addStudent" element={<AddStudent 
-        
-        />} />
-
-
-
-
-
-
+        <Route path="addStudent" element={<AddStudent />} />
       </Routes>
     </div>
   );

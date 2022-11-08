@@ -1,20 +1,51 @@
 import { Fragment } from 'react';
 import { useNavigate } from 'react-router';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import Input from '../input';
+import { login } from '../../store/user';
+import { useDispatch } from 'react-redux'
 
 
-function Login() {
+const schema = yup.object({
+    UserName: yup.string().required("שדה חובה"),
+    Password: yup.string().required("שדה חובה"),
+}).required();
+
+//https://react-hook-form.com/get-started/
+function LoginCom() {
+    const dispatch = useDispatch();
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    });
+
     let nav = useNavigate();
+
+    const send = (data) => {
+        console.log(data)
+        dispatch(login(data));
+    }
     return (
         <Fragment>
             <h1>כניסה</h1>
-            <form>
-                <input type="text" name="name" placeholder="שם משתמש" /><br /><br />
-                <input type="mail" name="email" placeholder="מייל" /><br /><br />
-                <input type="password" name="password" placeholder="סיסמא" /><br /><br />
-                <input type="button" value="כניסה" onClick={() => { nav("/homePage") }} />
+            <form onSubmit={handleSubmit(send)}>
+                <Input
+                    type="text"
+                    register={register}
+                    label={"שם משתמש או מייל"}
+                    errors={errors}
+                    name="UserName" />
+                <Input
+                    type="password"
+                    register={register}
+                    label={"סיסמה"}
+                    errors={errors}
+                    name="Password" />
+                <input type="submit" value="כניסה" />
             </form>
         </Fragment>
     )
 }
 
-export default Login;
+export default LoginCom;

@@ -1,25 +1,16 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { Table, Thead, Th } from 'reactable'
+import { Table as table, Thead as thead, Th as th } from 'reactable'
 
 
 
-const Users = () => {
+const Users = ({ users }) => {
     const [pgNo, setPGNO] = useState(0)
-    const [users, setUsers] = useState([]);
-    const [isFetching, setIsFetching] = useState(true)
+    const [isFetching, setIsFetching] = useState(false)
 
 
 
-    useEffect(() => {
-        fetch("http://localhost:30300/")
-            .then(response => response.json())
-            .then(res => {
-                setIsFetching(false)
-                setUsers(res)
-                // this.setState({ users: res, isFetching: false });
-            });
-    }, [])
+
 
     return isFetching
         ? (
@@ -30,26 +21,36 @@ const Users = () => {
         : (
             <div className="col-sm-10">
 
-                <Table
+                <table
                     className="table"
                     style={{
                         marginLeft: "20%",
                         marginRight: "5%"
                     }}
-                    filterable={["id", "name", "username", "email", "website"]}
-                    noDataText="No matching records found"
-                    itemsPerPage={7}
-                    currentPage={pgNo}
-                    sortable={true}
-                    data={users}>
-                    <Thead>
-                        <Th column="id">ID</Th>
-                        <Th column="name">Name</Th>
-                        <Th column="username">Username</Th>
-                        <Th column="email">Email address</Th>
-                        <Th column="website">Website</Th>
-                    </Thead>
-                </Table>
+                // filterable={["id", "FName", "LName", "Email", "Phone"]}
+                // noDataText="No matching records found"
+                // itemsPerPage={7}
+                // currentPage={pgNo}
+                // sortable={true}
+                // data={users}
+                >
+                    <thead>
+                        <tr>
+                            <th column="name">Name</th>
+                            <th column="username">Username</th>
+                            <th column="email">Email address</th>
+                            <th column="website">Website</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map(x => <tr key={x.id}>
+                            <td>{x.FName} </td>
+                            <td>{x.LName} </td>
+                            <td>{x.Phone} </td>
+                            <td>{x.Email} </td>
+                        </tr>)}
+                    </tbody>
+                </table>
             </div>
         );
 }
