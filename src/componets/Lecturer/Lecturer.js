@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Table, Th, Thead } from 'reactable'
 import './Lecturer.css'
@@ -10,23 +11,12 @@ const Lecturer = () => {
     const [isFetching, setIsFetching] = useState(true)
 
 
-    const handleSubmit = (e) => {
-        // e.preventDefault();
-        // const lecturer = profileObj(id, name, username, email, website, address);
-        // localStorage.setItem('lecturerProfile', JSON.stringify(lecturer))
-        // let form_data = new FormData()//fk
-        // form_data.append('id', parseInt(JSON.parse(localStorage.getItem('data')).id, 10))
-        // form_data.append('name', lecturer.namelecturer)
-        // form_data.append('username', lecturer.username)
-        // form_data.append('email', lecturer.email)
-        // form_data.append('website', lecturer.website)
-    }
+   
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then(response => response.json())
+        axios.get("https://localhost:44340/api/users")
             .then(res => {
-                setUsers(res);
+                setUsers(res.data);
                 setIsFetching(false)
             });
     }, [])

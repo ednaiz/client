@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react';
-import { Table as table, Thead as thead, Th as th } from 'reactable'
 
 
 

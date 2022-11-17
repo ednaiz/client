@@ -23,7 +23,7 @@ const Register = () => {
     const [mass, setMassege] = useState('')
     const send = (data) => {
         console.log(data)
-        axios.post('http://locallhost:568/api/customer', data).then(x => {
+        axios.post('https://localhost:44340/api/customer', data).then(x => {
 
             nav("/homePage")
         }).catch(x => setMassege("לא הצלחנו להקים לקוח "))

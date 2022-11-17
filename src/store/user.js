@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 
 export const login = (data) => {
     return dispatchEvent =>
-        axios.post('httppppppp/login', data)
+        axios.post('https://localhost:44340/api/login', data)
             .then(x => dispatchEvent({ type: actionType.LOGIN, user: x.data }))
             .catch(err => {
                 console.log(err, data)
@@ -13,7 +13,7 @@ export const login = (data) => {
 }
 export const Sighin = (data) => {
     return dispatchEvent =>
-        axios.post('httppppppp/Sighin', data)
+        axios.post('https://localhost:44340/api/Sighin', data)
             .then(x => dispatchEvent({ type: actionType.LOGIN, user: x.data }))
             .catch(err => {
                 console.log(err, data)
