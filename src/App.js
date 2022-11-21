@@ -4,6 +4,8 @@ import StudentList from './componets/StudentList/StudentList';
 import Lecturer from './componets/Lecturer/Lecturer';
 import Login from './componets/Login/Login';
 import Exit from './componets/EXSIT/EXSIT';
+import Atendecy from'./components/Atendecy/Atendecy';
+import StudentToCourse from './components/StudentToCourse';
 import { Routes, Route } from 'react-router-dom';
 function App() {
 
@@ -15,6 +17,13 @@ function App() {
         <Route path="lecturer" element={<Lecturer />} />
         <Route path="login" element={<Login />} />
         <Route path="exit" element={<Exit />} />
+<<<<<<< Updated upstream
+=======
+        <Route path="addStudent" element={<AddStudent />} />
+        <Route path="Atendency" element={<Atendecy />} />
+        <Route path="StudentToCourse" element={<StudentToCourse />} />
+        
+>>>>>>> Stashed changes
       </Routes>
     </div>
   );
