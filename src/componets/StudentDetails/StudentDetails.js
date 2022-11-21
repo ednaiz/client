@@ -49,9 +49,18 @@ const Users = ({ users }) => {
                         </tr>)}
                     </tbody>
                 </table>
+                <NavLink to = " /studentlist "> Back</NavLink>
+                <span>  </span>
+                <NavLink to ={"/studentlist"/edit/" + this.state.student ? id}>Edit<NavLink}
+
+                </>
+        
+            }  
 
             </div>
         );
+        
+
             }
 
        
