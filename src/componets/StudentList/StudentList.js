@@ -33,7 +33,11 @@ const StudentList = () => {
 
             <StudentDetails users={student} />
 
-            {showAdd ? <AddStudent setStudent={addStudent} cancel={() => setShowAdd(false)} /> : <button onClick={() => setShowAdd(true)}>+</button>}
+            {showAdd ? <AddStudent setStudent={addStudent} cancel={() => setShowAdd(false)} /> :
+            
+        <button onClick={() => setShowAdd(true)}>+</button>}   
+        
+
 
 
         </div>
