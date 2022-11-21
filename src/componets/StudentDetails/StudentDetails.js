@@ -49,7 +49,12 @@ const Users = ({ users }) => {
                         </tr>)}
                     </tbody>
                 </table>
+
             </div>
         );
+            }
+
+       
+
 
 export default Users
