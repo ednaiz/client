@@ -7,7 +7,14 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux'
 import store from './store/indexStore'
+import login from './login';
 
+
+
+
+it('renders without crashing', () => {
+  const div = document.login('div');
+  ReactDOM.render(<login />, div);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
