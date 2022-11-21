@@ -51,6 +51,5 @@ const Users = ({ users }) => {
                 </table>
             </div>
         );
-}
 
 export default Users
