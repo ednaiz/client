@@ -17,13 +17,13 @@ function App() {
         <Route path="lecturer" element={<Lecturer />} />
         <Route path="login" element={<Login />} />
         <Route path="exit" element={<Exit />} />
-<<<<<<< Updated upstream
-=======
+ Updated upstream
+
         <Route path="addStudent" element={<AddStudent />} />
         <Route path="Atendency" element={<Atendecy />} />
         <Route path="StudentToCourse" element={<StudentToCourse />} />
         
->>>>>>> Stashed changes
+ Stashed changes
       </Routes>
     </div>
   );
