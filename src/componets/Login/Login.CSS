@@ -1,0 +1,57 @@
+form {
+
+
+    text-align: center;
+    background-color: rgba(153, 111, 142, 0.767);
+    border: 4px double white;
+    border-radius: 20px;
+    color: white;
+    padding: 4%;
+    margin: auto;
+    align-items: center;
+    font-size: large;
+    width: 17vw;
+    position: relative;
+    top: 100px;
+}
+input {
+    height: 3vh;
+    width: 14vw;
+}
+input[type=submit] {
+    height: 6vh;
+    width: 14vw;
+    text-align: center;
+    background-color: rgba(202, 194, 207, 0.055);
+    border-radius: 20px;
+    color: rgb(162, 212, 235);
+    padding: 4%;
+    margin:5%;
+    align-items: center;
+    padding: 18px;
+    display: inline-block;
+    font-size: large;
+}
+.myDiv {
+    font-weight: bolder;
+    font-size: x-large;
+    position: relative;
+    right: 3.5rem;
+    margin: 50px;
+}
+input[type=submit]:hover {
+    background-color: rgba(128, 93, 93, 0.753);
+  }
+  input[type=text]:focus {
+    width: 100%;
+  }
+  
+  .myP{
+    position: relative;
+    left: 4rem;
+    top: -3rem;
+  }
+  input[type=checkbox]{
+    position: relative;
+    left: 7.5rem;
+  }
