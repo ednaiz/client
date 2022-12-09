@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { GetStudent } from "../../store/student";
 import AddStudent from "../Addstudent/Addstudant";
+import StudentDetails from '../StudentDetails/StudentDetails';
 
 
 const Atendecy = () => {
     const [showAdd, setShowAdd] = useState(false)
-ד
+
     useEffect(() => {
         GetStudent()
             .then(x => setStudent(x.data))
@@ -33,9 +34,9 @@ const Atendecy = () => {
             <StudentDetails users={student} />
 
             {showAdd ? <AddStudent setStudent={addStudent} cancel={() => setShowAdd(false)} /> :
-            
-        <button onClick={() => setShowAdd(true)}>+</button>}   
-        
+
+                <button onClick={() => setShowAdd(true)}>+</button>}
+
 
 
 
