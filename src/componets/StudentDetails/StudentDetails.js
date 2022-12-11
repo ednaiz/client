@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {NavLink} from 'react-router-dom'
 
 
 
@@ -49,21 +50,16 @@ const Users = ({ users }) => {
                         </tr>)}
                     </tbody>
                 </table>
-                <NavLink to = " /studentlist "> Back</NavLink>
+                <NavLink to=" /studentlist "> Back</NavLink>
                 <span>  </span>
-                <NavLink to ={"/studentlist"/edit/" + this.state.student ? id}>Edit<NavLink}
-
-                </>
-        
-            }  
-
+                <NavLink to={`/studentlist/edit/`}>Edit</NavLink>
             </div>
         );
-        
 
-            }
 
-       
+}
+
+
 
 
 export default Users
