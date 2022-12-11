@@ -1,0 +1,10 @@
+.HomePage{
+    background-color: blueviolet;
+    text-align: start;
+    display: flex;
+    flex-wrap:  warp ;
+    justify-content: space-around;
+}
+.space{
+    height: 200px;
+}
