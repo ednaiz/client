@@ -5,7 +5,7 @@ const GuestNavBar = () => {
         <Link to="studenttList" className="link"> רשימת סטודנטים</Link>
         <Link to="login" className="link"> כניסה </Link>
         <Link to="register" className="link"> הרשמה </Link>
-        <Link to="courses" className="link"> קורסים לצפייה ת </Link>
+        <Link to="courses" className="link">קורסים ת  רשימת </Link>
     </nav>
     )
 }
