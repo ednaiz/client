@@ -2,10 +2,11 @@ import {Link} from "react-router-dom";
 import "./NavBar.css";
 const GuestNavBar = () => {
     return ( <nav className="nav">
-        <Link to="studenttList" className="link"> רשימת סטודנטים</Link>
-        <Link to="login" className="link"> כניסה </Link>
+        <Link to="coursestList" className="link"> רשימת קורסים</Link>
+        <Link to="About" className="link"> דף אודות ה </Link>
         <Link to="register" className="link"> הרשמה </Link>
-        <Link to="courses" className="link">קורסים ת  רשימת </Link>
+        <Link to="lecturer" className="link">מרצים רשימת </Link>
+        <Link to="exit" className="link"> יציאה הת </Link>
     </nav>
     )
 }
