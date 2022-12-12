@@ -8,6 +8,13 @@ import Atendecy from './componets/Atendency/Atendecy';
 import StudentToCourse from './componets/StudentToCouts/StudentToCours';
 import { Routes, Route } from 'react-router-dom';
 import AddStudent from './componets/Addstudent/Addstudant';
+import UserNavbar from './componets/UserNavbar/UserNavbar';
+import ManagerNavbar from './components/ManagerNavbar/ManagerNavbar';
+import Guestnavbar from './componets/Guestnavbar/Guestnavbar';
+import courseslist from './componets/courseslist/courseslist';
+
+
+
 function App() {
 
   return (
@@ -19,8 +26,20 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="exit" element={<Exit />} />
         <Route path="addStudent" element={<AddStudent />} />
+        <Route path="StodentToCores" element={<A StudentToCourse />} />
+        <Route path="courseslist" element={<courseslist />} />
+        <Route path="Guestnavbar" element={<Guestnavbar/>} />
+        <Route path="UserNavbar" element={<UserNavbar />} />
+        <Route path="ManagerNavbar" element={<ManagertNavbar />} />
+        <Route path="Studentmarks" element={<Studentmarks />} />
+       
         <Route path="Atendency" element={<Atendecy />} />
-        <Route path="StudentToCourse" element={<StudentToCourse />} />
+       
+       
+       
+       
+        <Route path="corseslist" element={<courseslist />} />
+        
       </Routes>
     </div>
   );
