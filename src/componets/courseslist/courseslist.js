@@ -1,54 +1,50 @@
-
+import React, { useEffect, useState } from 'react'
 import { GetStudent } from "../../store/student";
 import AddStudent from "../Addstudent/Addstudant";
 import StudentDetails from '../StudentDetails/StudentDetails';
 
 
-const coursesList = () => {
+const CoursesList = () => {
     const [showAdd, setShowAdd] = useState(false)
+    const [courses, setCourse] = useState([]);
 
     useEffect(() => {
         GetStudent()
             .then(x => setCourse(x.data))
-            .catch(err => setCours(
+            .catch(() => setCourse(
                 [
-                    { Subject: "react ל", lessontype: "frontal lesson",  },
-                    { Subject: "java ר", lessontype: "frontal lesson",   },
-                    { Subject: "node.jsיה", lessontype: "house lesson",  },
-                    { Subject: "angular ה", lessontype: "house lesson",  },
-                    { Subject: "java script ה", lessontype: "house lesson",},
-                    
+                    { Subject: "react ל", lessontype: "frontal lesson", },
+                    { Subject: "java ר", lessontype: "frontal lesson", },
+                    { Subject: "node.jsיה", lessontype: "house lesson", },
+                    { Subject: "angular ה", lessontype: "house lesson", },
+                    { Subject: "java script ה", lessontype: "house lesson", },
+
 
                 ]
-                
+
             )
             )
     }, [])
-    const [courses, setCourses] = useState([]);
 
-    const lecturer = (data) => {
+    const addStudent = (data) => {
         console.log(data)
         const courses = [...courses];
         courses.push(data)
         console.log(courses)
-        setStudent(courses)
+        setCourse(courses)
     }
     return (
         <div>
 
-            <StudentDetails users={student} />
-
-            {showAdd ? <AddStudent setStudent={addStudent} cancel={() => setShowAdd(false)} /> :
-
-                <button onClick={() => setShowAdd(true)}>+</button>}
-
-
-
-
+            <StudentDetails users={courses} />
+            {showAdd ?
+                <AddStudent setStudent={addStudent} cancel={() => setShowAdd(false)} /> :
+                <button onClick={() => setShowAdd(true)}>+</button>
+            }
         </div>
 
     );
 
 };
 
-export default Atendecy;
+export default CoursesList;

@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom'
 
 
 const Users = ({ users }) => {
-    const [pgNo, setPGNO] = useState(0)
     const [isFetching, setIsFetching] = useState(false)
 
 

@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -16,14 +15,15 @@ const schema = yup.object({
 //https://react-hook-form.com/get-started/
 function LoginCom() {
     const dispatch = useDispatch();
+
+
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
-    let nav = useNavigate();
+ 
 
     const send = (data) => {
-        console.log(data)
         dispatch(login(data));
     }
     return (

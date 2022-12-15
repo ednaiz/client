@@ -1,10 +1,11 @@
-import {Link} from "react-router-dom";
-import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import {  useDispatch } from "react-redux";
 import { saveLogin } from "../store/actions/user";
 import "./NavBar.css";
 
-const ManagerNavBar = (props) => {
-    return ( <nav className="nav">
+const ManagerNavBar = () => {
+    const dispatch = useDispatch();
+    return (<nav className="nav">
         <Link to="StudentList" className="link"> רשימת תלמידים </Link>
         <Link to="addStudent" className="link">הוספת תלמיד ר </Link>
         <Link to="Atendecy" className="link">הוספת תלמיד ר </Link>
@@ -13,15 +14,8 @@ const ManagerNavBar = (props) => {
         <Link to="studentdetails" className="link">הוספת תלמיד ר </Link>
         <Link to="lecturer" className="link">הוספת תלמיד ר </Link>
         <Link to="exit" className="link">הוספת תלמיד ר </Link>
-        
-        
-
-        
-
-        
-        
-        <Link to="exit"  className="link" onClick={() => {props.saveLogin(null)}}> יציאה </Link>
+        <Link to="exit" className="link" onClick={() => dispatch(saveLogin(null))}> יציאה </Link>
     </nav>
     )
 }
-export default connect(null, {saveLogin}) (ManagerNavBar);
+export default ManagerNavBar;

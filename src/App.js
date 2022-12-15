@@ -1,45 +1,57 @@
 import './App.css';
 import Register from './componets/Register/REGISSTERR';
-import StudentList from './componets/StudentList/StudentList';
 import Lecturer from './componets/Lecturer/Lecturer';
 import Login from './componets/Login/Login';
 import Exit from './componets/EXSIT/EXSIT';
 import Atendecy from './componets/Atendency/Atendecy';
-import StudentToCourse from './componets/StudentToCouts/StudentToCours';
 import { Routes, Route } from 'react-router-dom';
 import AddStudent from './componets/Addstudent/Addstudant';
 import UserNavbar from './componets/UserNavbar/UserNavbar';
-import ManagerNavbar from './components/ManagerNavbar/ManagerNavbar';
 import Guestnavbar from './componets/Guestnavbar/Guestnavbar';
-import courseslist from './componets/courseslist/courseslist';
+import CoursesList from './componets/courseslist/courseslist';
+import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 
 
-function App() {
+
+const App = () => {
+  const navigaate = useNavigate();
+  const currentUser = useSelector(state => state.currentUser)
+
+  useEffect(() => {
+    if (currentUser) {
+      navigaate("/home")
+    }
+    else {
+      navigaate("/login")
+    }
+  }, [currentUser])
 
   return (
     <div className="App">
       <Routes>
         <Route path="register" element={<Register />} />
-        <Route path="studentList" element={<StudentList />} />
+        {/* <Route path="studentList" element={<StudentList />} /> */}
         <Route path="lecturer" element={<Lecturer />} />
         <Route path="login" element={<Login />} />
         <Route path="exit" element={<Exit />} />
         <Route path="addStudent" element={<AddStudent />} />
-        <Route path="StodentToCores" element={<A StudentToCourse />} />
-        <Route path="courseslist" element={<courseslist />} />
-        <Route path="Guestnavbar" element={<Guestnavbar/>} />
+        {/* <Route path="StodentToCores" element={<StudentToCourse />} /> */}
+        <Route path="courseslist" element={<CoursesList />} />
+        <Route path="Guestnavbar" element={<Guestnavbar />} />
         <Route path="UserNavbar" element={<UserNavbar />} />
-        <Route path="ManagerNavbar" element={<ManagertNavbar />} />
-        <Route path="Studentmarks" element={<Studentmarks />} />
-       
+        {/* <Route path="ManagerNavbar" element={<ManagertNavbar />} /> */}
+        {/* <Route path="Studentmarks" element={<Studentmarks />} /> */}
+
         <Route path="Atendency" element={<Atendecy />} />
-       
-       
-       
-       
+
+
+
+
         <Route path="corseslist" element={<courseslist />} />
-        
+
       </Routes>
     </div>
   );

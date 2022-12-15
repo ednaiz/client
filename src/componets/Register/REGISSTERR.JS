@@ -3,8 +3,10 @@ import "./Register"
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import axios from 'axios';
+import { Sighin } from '../../store/user';
+
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const schema = yup.object({
     name: yup.string().required("שדה חובה"),
@@ -14,25 +16,18 @@ const schema = yup.object({
 
 const Register = () => {
 
-
+    const dispatch = useDispatch();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
-    let nav = useNavigate();
-  
-    const [mass, setMassege] = useState('')
-    const send = (data) => {
-        console.log(data)
-        axios.post('https://localhost:44340/api/customer', data).then(x => {
 
-            nav("/homePage")
-        }).catch(x => setMassege("לא הצלחנו להקים לקוח "))
-    }
+    const [mass, setMassege] = useState('')
+
     return (
         <>
             <h1>הרשמה</h1>
             <p>{mass}</p>
-            <form onSubmit={handleSubmit(send)}>
+            <form onSubmit={handleSubmit((data) => dispatch(Sighin(data)))}>
                 <input type="text" name="name" {...register('name')} />
                 <label >שם משתמש</label>
                 <br />
