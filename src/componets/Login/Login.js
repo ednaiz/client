@@ -5,6 +5,10 @@ import * as yup from "yup";
 import Input from '../input';
 import { login } from '../../store/user';
 import { useDispatch } from 'react-redux'
+import "./Login.css";
+import "./StudentList.css";
+
+
 
 
 const schema = yup.object({
