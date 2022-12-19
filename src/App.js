@@ -1,40 +1,42 @@
 import './App.css';
-import Register from './componets/Register/REGISSTERR';
+// import Register from './componets/Register/REGISSTERR';
 import Lecturer from './componets/Lecturer/Lecturer';
 import Login from './componets/Login/Login';
-import Exit from './componets/EXSIT/EXSIT';
+import Exit from './componets/EXIT/EXIT.JS';
 import Atendecy from './componets/Atendency/Atendecy';
 import { Routes, Route } from 'react-router-dom';
 import AddStudent from './componets/Addstudent/Addstudant';
 import UserNavbar from './componets/UserNavbar/UserNavbar';
 import Guestnavbar from './componets/Guestnavbar/Guestnavbar';
 import CoursesList from './componets/courseslist/courseslist';
+import StudentList from './componets/StudentList/StudentList';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
-
-
+import Register from './componets/Register/Register';
+import Homepage from './componets/Homepage/Homepage';
 
 const App = () => {
   const navigaate = useNavigate();
   const currentUser = useSelector(state => state.currentUser)
 
-  useEffect(() => {
-    if (currentUser) {
-      navigaate("/home")
-    }
-    else {
-      navigaate("/login")
-    }
-  }, [currentUser])
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     navigaate("/home")
+  //   }
+  //   else {
+  //     navigaate("/login")
+  //   }
+  // }, [currentUser])
 
   return (
     <div className="App">
       <Routes>
+        <Route path='' element={<Homepage/>}/>
         <Route path="register" element={<Register />} />
-        {/* <Route path="studentList" element={<StudentList />} /> */}
+        <Route path="studentsList" element={<StudentList />} />
         <Route path="lecturer" element={<Lecturer />} />
+        <Route path="contact" element={<Lecturer />} />
         <Route path="login" element={<Login />} />
         <Route path="exit" element={<Exit />} />
         <Route path="addStudent" element={<AddStudent />} />
@@ -44,14 +46,8 @@ const App = () => {
         <Route path="UserNavbar" element={<UserNavbar />} />
         {/* <Route path="ManagerNavbar" element={<ManagertNavbar />} /> */}
         {/* <Route path="Studentmarks" element={<Studentmarks />} /> */}
-
         <Route path="Atendency" element={<Atendecy />} />
-
-
-
-
         <Route path="corseslist" element={<courseslist />} />
-
       </Routes>
     </div>
   );
@@ -112,9 +108,4 @@ const App = () => {
 // axios.post('https://localhost:44340/api/customer',d)
 // .then(x=>console.log(x))
 // .catch(x=>console.log(x))
-
-
-
-
-
 export default App;
