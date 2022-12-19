@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { GetStudent } from "../../store/student";
 import AddStudent from "../Addstudent/Addstudant";
 import StudentDetails from '../StudentDetails/StudentDetails'
+import "./StudentList.css";
+
 
 const StudentList = () => {
 
