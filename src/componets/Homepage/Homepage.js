@@ -1,13 +1,11 @@
-import'./Homepage.css';
-import {NavLink} from "react react-router-dom";
-import {useNavigate} from "react-router";
-export default function Homepage(){
-    const nav= useNavigate();
-    return
-     
-        
-
-
-
-    
+import NavBar from "../NavBar/NavBar"
+// import './Homepage.css';
+const Homepage = () => {
+    return (
+        <>
+            <h1>Homepage</h1>
+            <NavBar/>
+        </>
+    )
 }
+export default Homepage;
