@@ -57,7 +57,7 @@ const AddStudent = ({ setStudent, cancel }) => {
                     label={"פלאפון"}
                     errors={errors}
                     name="Phone" />
-                <input type="submit" value="הוספה" />
+                <input type="submit" value="הוספה"/>
             </form>
         </Fragment>
     )
