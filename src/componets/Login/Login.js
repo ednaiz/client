@@ -5,11 +5,8 @@ import * as yup from "yup";
 import Input from '../input';
 import { login } from '../../store/user';
 import { useDispatch } from 'react-redux'
-import "./Login.css";
-import "./StudentList.css";
-
-
-
+import "./Login.CSS";
+// import "./StudentList.css";
 
 const schema = yup.object({
     UserName: yup.string().required("שדה חובה"),
