@@ -38,7 +38,7 @@ const Lecturer = () => {
                         marginLeft: "20%",
                         marginRight: "5%"
                     }}
-                    filterable={["id", "name", "username", "email", "website"]}
+                    filterable={["id", "name", "username", "email", ]}
                     noDataText="No matching records found"
                     itemsPerPage={7}
                     currentPage={pgNo}
@@ -49,7 +49,7 @@ const Lecturer = () => {
                         <Th column="name">Name</Th>
                         <Th column="username">Username</Th>
                         <Th column="email">Email address</Th>
-                        <Th column="website">Website</Th>
+                        
                     </Thead>
                 </Table>
             </div>
