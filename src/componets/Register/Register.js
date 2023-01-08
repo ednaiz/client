@@ -1,34 +1,60 @@
-// import React from 'react';
-// const Register = () => {
-//     return (
-//         <div className="form">
-//             <div className="form-body">
-//                 <div className="username">
-//                     <label className="form__label" for="firstName">First Name </label>
-//                     <input className="form__input" type="text" id="firstName" placeholder="First Name" />
-//                 </div>
-//                 <div className="lastname">
-//                     <label className="form__label" for="lastName">Last Name </label>
-//                     <input type="text" name="" id="lastName" className="form__input" placeholder="LastName" />
-//                 </div>
-//                 <div className="email">
-//                     <label className="form__label" for="email">Email </label>
-//                     <input type="email" id="email" className="form__input" placeholder="Email" />
-//                 </div>
-//                 <div className="password">
-//                     <label className="form__label" for="password">Password </label>
-//                     <input className="form__input" type="password" id="password" placeholder="Password" />
-//                 </div>
-//                 <div className="confirm-password">
-//                     <label className="form__label" for="confirmPassword">Confirm Password </label>
-//                     <input className="form__input" type="password" id="confirmPassword" placeholder="Confirm Password" />
-//                 </div>
-//             </div>
-//             <div class="footer">
-//                 <button type="submit" class="btn">Register</button>
-//             </div>
-//         </div>
-//     )
-// }
+import { Fragment } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import Input from '../input';
+import { login } from '../../store/user';
+import { useDispatch } from 'react-redux'
+import "./Login.CSS";
+// import "./StudentList.css";
 
-// export default Register;
+const schema = yup.object({
+    UserName: yup.string().required("שדה חובה"),
+    Password: yup.string().required("שדה חובה"),
+    Phone: yup.string().required("שדה חובה")
+}).required();
+
+//https://react-hook-form.com/get-started/
+function LoginCom() {
+    const dispatch = useDispatch();
+
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    });
+
+ 
+
+    const send = (data) => {
+        dispatch(login(data));
+    }
+    return (
+        <Fragment>
+            <h1>כניסה</h1>
+            <form onSubmit={handleSubmit(send)}>
+                <Input
+                    type="text"
+                    register={register}
+                    label={"שם משתמש או מייל"}
+                    errors={errors}
+                    name="UserName" />
+                    <Input
+                    type="text"
+                    register={register}
+                    label={"שם משתמש או מייל"}
+                    errors={errors}
+                    name="UserName" />
+                <Input
+                    type="password"
+                    register={register}
+                    label={"סיסמה"}
+                    errors={errors}
+                    name="Password" />
+                <input type="submit" value="כניסה" />
+            </form>
+        </Fragment>
+    )
+}
+
+
+export default LoginCom;
