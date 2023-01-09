@@ -6,7 +6,6 @@ import Input from '../input';
 import { login } from '../../store/user';
 import { useDispatch } from 'react-redux'
 import "./Login.CSS";
-// import "./StudentList.css";
 
 const schema = yup.object({
     UserName: yup.string().required("שדה חובה"),

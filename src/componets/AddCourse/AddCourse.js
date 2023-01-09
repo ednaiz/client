@@ -3,28 +3,28 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import Input from '../input';
 import { Fragment } from 'react';
-import { addStudentPost } from '../../store/student';
+import { AddCourse } from '../../store/student';
 
 
 const schema = yup.object({
-    FName: yup.string().required("שדה חובה"),
-    LName: yup.string().required("שדה חובה"),
-    Email: yup.string().email('כתובת מייל לא תקין'),
-    Phone: yup.string(),
+    id: yup.string().required("שדה חובה"),
+    Name: yup.string().required("שדה חובה"),
+    LessonNum: yup.string().email('כתובת מייל לא תקין').required("שדה חובה"),
+    lecturer: yup.string().required("שדה חובה"),
 
 }).required();
 
-const AddStudent = ({ setStudent, cancel }) => {
+const AddCourse = ({ setCourse, cancel }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
-    const addStudent = (data) => {
+    const AddCourse = (data) => {
         console.log(data)
-        addStudentPost(data)
-            .then(x => setStudent(x.data))
-            .catch(err => setStudent(data))
+        AddCoursePost(data)
+            .then(x => setCourse(x.data))
+            .catch(err => setCourse(data))
 
     }
 
@@ -32,34 +32,34 @@ const AddStudent = ({ setStudent, cancel }) => {
     return (
         <Fragment>
             <button onClick={cancel}>ביטול</button>
-            <form onSubmit={handleSubmit(addStudent)}>
+            <form onSubmit={handleSubmit(AddCourse)}>
+                <Input
+                    type="id"
+                    register={register}
+                    label={" מספר קורס"}
+                    errors={errors}
+                    name="id" />
                 <Input
                     type="text"
                     register={register}
-                    label={"שם פרטי"}
+                    label={"שם קורס"}
                     errors={errors}
-                    name="FName" />
+                    name="Name" />
+                <Input
+                    type="number"
+                    register={register}
+                    label={"מספר שיעורים"}
+                    errors={errors}
+                    name="LessonNum" />
                 <Input
                     type="text"
                     register={register}
-                    label={"שם משפחה"}
+                    label={"מרצה"}
                     errors={errors}
-                    name="LName" />
-                <Input
-                    type="email"
-                    register={register}
-                    label={"מייל"}
-                    errors={errors}
-                    name="Email" />
-                <Input
-                    type="text"
-                    register={register}
-                    label={"פלאפון"}
-                    errors={errors}
-                    name="Phone" />
+                    name="Lecturer" />
                 <input type="submit" value="הוספה"/>
             </form>
         </Fragment>
     )
 }
-export default AddStudent;
+export default AddCourse;

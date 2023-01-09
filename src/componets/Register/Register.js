@@ -3,19 +3,22 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import Input from '../input';
-import { login } from '../../store/user';
+import { Register } from '../../store/user';
 import { useDispatch } from 'react-redux'
-import "./Login.CSS";
+import "./Register.CSS";
 // import "./StudentList.css";
 
 const schema = yup.object({
+    FName: yup.string().required("שדה חובה"),
+    LName: yup.string().required("שדה חובה"),
     UserName: yup.string().required("שדה חובה"),
     Password: yup.string().required("שדה חובה"),
-    Phone: yup.string().required("שדה חובה")
+    Email: yup.string().email('כתובת מייל לא תקין').required("שדה חובה"),
+    Phone: yup.string().required("שדה חובה"),
 }).required();
 
 //https://react-hook-form.com/get-started/
-function LoginCom() {
+function Register() {
     const dispatch = useDispatch();
 
 
@@ -26,22 +29,29 @@ function LoginCom() {
  
 
     const send = (data) => {
-        dispatch(login(data));
+        dispatch(register(data));
     }
     return (
         <Fragment>
             <h1>כניסה</h1>
             <form onSubmit={handleSubmit(send)}>
+                
+               <Input 
+                    type="text"
+                    register={register}
+                    label={"שם פרטי"}
+                    errors={errors}
+                    name="FName" />
                 <Input
                     type="text"
                     register={register}
-                    label={"שם משתמש או מייל"}
+                    label={"שם משפחה"}
                     errors={errors}
-                    name="UserName" />
-                    <Input
+                    name="LName" />
+                <Input
                     type="text"
                     register={register}
-                    label={"שם משתמש או מייל"}
+                    label={"שם משתמש"}
                     errors={errors}
                     name="UserName" />
                 <Input
@@ -50,6 +60,18 @@ function LoginCom() {
                     label={"סיסמה"}
                     errors={errors}
                     name="Password" />
+                    <Input
+                    type="email"
+                    register={register}
+                    label={"מייל"}
+                    errors={errors}
+                    name="Email" />
+                <Input
+                    type="text"
+                    register={register}
+                    label={"פלאפון"}
+                    errors={errors}
+                    name="Phone" />
                 <input type="submit" value="כניסה" />
             </form>
         </Fragment>
@@ -57,4 +79,4 @@ function LoginCom() {
 }
 
 
-export default LoginCom;
+export default Reg`                                                                                                                                                     ister;
