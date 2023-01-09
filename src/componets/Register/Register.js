@@ -79,4 +79,4 @@ function Register() {
 }
 
 
-export default Reg`                                                                                                                                                     ister;
+export default Register;

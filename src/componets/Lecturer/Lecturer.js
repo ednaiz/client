@@ -46,7 +46,9 @@ const Lecturer = () => {
                     data={users}>
                     <Thead>
                         <Th column="id">ID</Th>
-                        <Th column="name">Name</Th>
+                        <Th column="FName">FName</Th>
+                        <Th column="LName">LName</Th>
+                        <Th column="Phone">Phone</Th>
                         <Th column="username">Username</Th>
                         <Th column="email">Email address</Th>
                         
